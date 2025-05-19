@@ -15,7 +15,7 @@ The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait da
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
 
-### Phenotype data
+## Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
 
 <details>
@@ -25,7 +25,12 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
 2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
 3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
-4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD 
+4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of:
+   a. civil registration data
+   b. HES APC data
+   c. HES OP data
+   d. cancer registry data
+   e. ECDS data
 
 </details>
 
