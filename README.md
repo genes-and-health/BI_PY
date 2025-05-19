@@ -53,7 +53,7 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 
 The notebooks can be found in the [code](code) directory.
 
-## Input data
+## Input files
 
 The pipeline requires a single imput file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv`.  This file can be found in the [inputs](inputs) directory.
 
@@ -80,6 +80,8 @@ GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Myocardial infarc
 
 </details>
 
+In `GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv` there are 287 binary trait codelists.
+
 ## Pipeline steps
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
 
@@ -94,7 +96,10 @@ Each notebook is described below.
 > 
 
 ### `1-create-clean-demographics-notebook.ipynb`
-Phenotype data is large in both size and number of files, and stored in different directories at different directory depth.  Buffering issues affect processing of data directly from the `/library-red/` Google Cloud bucket.  It is therefore simpler to copy all phenotype file to the `ivm` running `QUANT_PY`.  This transfer can be effected within the pipeline by setting a pipeline flag.
+
+This notebook is for processing the demographic dataset into a usable format. This is the first step in our process because when we come to cleaning and processing the other data that we have (notebook 2 to 5), we want to remove unrealistic data for example, events that happen before 1910 or in the future.
+In this first notebook, we take in 2 different reference datasets that allow us to map demographic information (age and sex) to nhs_numbers.  We process these and save the output as a `.arrows` file for use in subsequent `BI_PY`
+The reference datasets are: `2025_02_01__Megalinkage_forTRE.csv` (which links ExWAS and GWAS identifiers to `pseudo_nhs_number`s, and `QMUL__Stage1Questionnaire/2025_04_25__S1QSTredacted.csv` which clarifies volunteer age and gender.
 
 ### STEP 1: Import phenotype files with appropriate pre-processing
 `R` is very good at handling "raggedness" but in doing so, it makes assumptions.  This can lead to the "wrong" data ending in a column.  Python can also import .csv/.tsv/.tab files and make assumptions about the seprators/raggedness/column data type but in `QUANT_PY` this is intentionally and explicitly avoided.  This means that some files need to be pre-processed.  This take the form of one or more of the following pre-processing operations:
