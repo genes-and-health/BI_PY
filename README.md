@@ -15,7 +15,18 @@ The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait da
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
 
+### Phenotype data
+The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
+1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
+2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
+3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
+4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD 
+
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.), and an addtional post-processing notebook (identified as `NB#99`), which may be subsumed into other notebooks in future versions of `BI_PY`:
+
+<details>
+   
+<summary>`BI_PY` notebooks</summary>
 
 * **NB#1:** 1-create-clean-demographics-notebook.ipynb
 * **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
@@ -27,14 +38,11 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 * **NB#8:** 8-custom-phenotypes.ipynb
 * **NB#99:** 99-post-processing-stop-gap.ipynb
 
+</details>
+
 The notebooks can be found in the [code](code) directory.
 
-### Phenotype data
-The pipeline imports G&H phenotype data in `/library-red/phenotypes_rawdata/`.  These data are from the following sources:
-1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
-2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
-3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
-4. **DSA_NHSDigital**: Data from the National Diabetes Audit (NDA) \[England-wide: ~13,000 individuals with data]
+
 
 ## Input data
 ### Trait files
