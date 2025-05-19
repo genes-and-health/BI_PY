@@ -15,11 +15,19 @@ The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait da
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
 
-The pipeline is constituted of 8 formal sequential python notebooks (NB#1, NB#2, etc.) and an addtional post-processing notebook (identified as NB#99), which may be subsumed into other notebooks in future versions of `BI_PY`.
+The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.), and an addtional post-processing notebook (identified as `NB#99`), which may be subsumed into other notebooks in future versions of `BI_PY`:
 
+* **NB#1:** 1-create-clean-demographics-notebook.ipynb
+* **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
+* **NB#3:** 3-process-datasets-barts-health.ipynb
+* **NB#4:** 4-process-datasets-bradford.ipynb
+* **NB#5:** 5-process-datasets-nhs-digital.ipynb
+* **NB#6:** 6-merge-datasets-notebook.ipynb
+* **NB#7:** 7-three-and-four-digit-ICD.ipynb
+* **NB#8:** 8-custom-phenotypes.ipynb
+* **NB#99:** 99-post-processing-stop-gap.ipynb
 
-
-
+The notebooks can be found in the [code](code) directory.
 
 ### Phenotype data
 The pipeline imports G&H phenotype data in `/library-red/phenotypes_rawdata/`.  These data are from the following sources:
