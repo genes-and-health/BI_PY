@@ -51,29 +51,27 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 
 The notebooks can be found in the [code](code) directory.
 
-
-
 ## Input data
-### Trait files
-The pipeline requires 3 trait input files: 1. `trait_features.csv`, 2. `trait_aliases_long.csv`, 3. `unit_conversions.csv`.
 
-#### _`trait_features.csv`_
-This file lists all the quantitative traits currently extracted from the phenotype data.  The .csv file has 4 columns: trait,target_units,min,max.
+The pipeline requires a single imput file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv`.  This file can be found in the [inputs](inputs) directory.
+
+The custom codelist .csv file has 4 columns: `phenotype`, `code`, `name`, `comment`.
 
 <details>
    
-<summary>"trait_features.csv" file extract</summary>
+<summary>"GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv" file extract</summary>
   
 ```
-trait,target_units,min,max
-2h postprandial glucose,millimol/L,0.6,45.0
-AFP,kU/L,1e-100,10000.0
-ALP,units/L,8.0,1500.0
-ALT,units/L,5.0,1500.0
-APTT,seconds,1e-100,100.0
-AST,units/L,3.0,1000.0
-Albumin,g/L,10.0,80.0
-Alcohol units per week,units/week,0.0,350.0
+phenotype, code, name, comment
+GNH0002_CoronaryArteryDisease_narrow,I200,ICD10,Unstable angina,
+GNH0002_CoronaryArteryDisease_narrow,I201,ICD10,Angina pectoris with documented spasm,
+GNH0002_CoronaryArteryDisease_narrow,I208,ICD10,Other forms of angina pectoris,
+GNH0002_CoronaryArteryDisease_narrow,K401,OPCS4,Saphenous vein graft replacement of one coronary artery,
+GNH0002_CoronaryArteryDisease_narrow,K402,OPCS4,Saphenous vein graft replacement of two coronary arteries,
+GNH0002_CoronaryArteryDisease_narrow,K403,OPCS4,Saphenous vein graft replacement of three coronary arteries,
+GNH0002_CoronaryArteryDisease_narrow,I753000,SNOMED ConceptID,Old myocardial infarction,
+GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Heart attack,
+GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Myocardial infarction,
 ```
 
 </details>
