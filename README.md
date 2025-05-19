@@ -39,6 +39,8 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 
 </details>
 
+The source datafiles required are reasonably small **and `BI_PY` does not copy over any raw data from `../library-red/` to the ivm (cf. `QUANT_PY` which does)**.
+
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
 * **NB#1:** 1-create-clean-demographics-notebook.ipynb
 * **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
@@ -66,97 +68,32 @@ phenotype, code, name, comment
 GNH0002_CoronaryArteryDisease_narrow,I200,ICD10,Unstable angina,
 GNH0002_CoronaryArteryDisease_narrow,I201,ICD10,Angina pectoris with documented spasm,
 GNH0002_CoronaryArteryDisease_narrow,I208,ICD10,Other forms of angina pectoris,
+[...]
 GNH0002_CoronaryArteryDisease_narrow,K401,OPCS4,Saphenous vein graft replacement of one coronary artery,
 GNH0002_CoronaryArteryDisease_narrow,K402,OPCS4,Saphenous vein graft replacement of two coronary arteries,
 GNH0002_CoronaryArteryDisease_narrow,K403,OPCS4,Saphenous vein graft replacement of three coronary arteries,
+[...]
 GNH0002_CoronaryArteryDisease_narrow,I753000,SNOMED ConceptID,Old myocardial infarction,
 GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Heart attack,
 GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Myocardial infarction,
 ```
 
 </details>
-So, for example, there is a "2h postprandial glucose" trait which is reported in "millimol/L", excluding any value less than 0.6 millimol/L or over 45.0 millimol/L.
-
-#### _`trait_aliases_long.csv`_
-SNOMED codes are missing for some of the G&H data pulls, this means that quantitative trait extraction is based on free-text trait descriptions (aka `original_term` within the script).  This file assigns all valid trait descriptions (aliases) to a trait.
-
-<details>
-   
-<summary>"trait_aliases_long.csv" file extract</summary>
-  
-```
-trait,alias
-2h_postprandial_glucose,2h postprandial glucose
-2h_postprandial_glucose,"Glucose tolerance test, 2 hour post prandial (procedure)"
-...
-Alcohol_units_per_week,Alcohol units per week
-Alcohol_units_per_week,Alcohol units/week (qualifier value)
-...
-Blood_ketones,Blood ketone level (observable entity)
-Blood_ketones,POCT Blood Ketones
-...
-creatinine,Creatinine Serum
-creatinine,Creatinine level (observable entity)
-```
-
-</details>
-
-#### _`unit_conversions.csv`_
-The same trait may be measured in different units depending of the setting (e.g. primary vs secondary care) or the data source (trust 1 vs trust 2).  This file allows unit conversions if a trait is in a valid but undesired unit which can be converted to a target_unit (as defined in `trait_features.csv`).  It also acts as a synonym dictionary to standardise unit terminology, for example, `nmol/L` is converted into the preferred term `nanomol/L`. Such conversions can be identified by a `multiplication_factor` of 1.0. 
-
-<details>
-   
-<summary>"unit_conversions.csv" file extract</summary>
-  
-```
-result_value_units,target,multiplication_factor
-%,%,1.0
-*10^9/l,10^9/L,1.0
-g/L,mg/L,1000.0
-IU/L,units/L,1.0
-Kg,grams,1000.0
-mg/L,g/L,0.001
-miu/L,milliunits/L,1.0
-nmol/L,nanomol/L,1.0
-Units/Day,units/week,7.0
-```
-</details>
-
-### Hospital admission data
-
-`QUANT_PY` uses NHS England Digital Hospital Episode Statistics (HES) Admitted Patient Care (APC) data to identify periods of hospitalisation --as certain hospital day treatments are logged as APC events (e.g. immunotherapy infusions), **only APC episodes >2 calendar days are considered as hospitalisation**.  At present, `QUANT_PY` does not exclude data obtained during a A&E episode (HES AE + ECDS) unless this leads to a hospital admission (in which case it is "subsumed" by an APC episode).  However, the script is written such that it could accommodate these if needed/desired.
-
-`QUANT_PY` **extends the hospitalisation episode by a 2-week buffer on either side of the APC event** on the basis that individuals admitted to hospital are typically unwell in the days leading to hospitalisation and may be discharged recovering, but prior to a return to their baseline status.
-
-### Phenotype data
-The pipeline imports G&H phenotype data in `/library-red/phenotypes_rawdata/`.  These data are from the following sources:
-1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
-2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
-3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
-4. **DSA_NHSDigital**: Data from the National Diabetes Audit (NDA) \[England-wide: ~13,000 individuals with data]
-
-Phenotype files processed are listed in [Appendix A](#appendix-a-list-of-processed-phenotype-files).
-
-#### Notes about the processing of quantitative data
-1. `QUANT_PY` **does not use incremental data generation**. Every time a release is produced, all current and historically collected data are read in, concatenated and **then** deduplicated.
-2. The aim of all phenotype processing steps is to produce a combined dataframe with the following columns:
-
-| pseudo_nhs_number | test_date | original_term | result | result_value_units | provenance | source | hash |
-|-------------------|-----------|---------------|--------|--------------------|------------|--------|------|
-| 64-char pseudo NHS number | YYYY-MM-DD | free-text term e.g. "Mean Cell Volume" | result (flot64), e.g. 83.8 | unit of result, e.g. "Femtolitre" | file(s) data extracted from e.g. "2023_05_Barts_path" | source ("primary care" or "secondary care" | A hash value used to deduplicate data (unsigned int64) |
-
-3. All `QUANT_PY` output files are derived from the above. 
 
 ## Pipeline steps
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
 
+The pipeline is constituted of a series of independent python Jupyter notebooks.  They can be run individually but they are best run sequentially and contemporaneously.  To this effect, running the list cell in the notebook will save and close the current notebook and automatically open the next notebook.
+
+Each notebook is described below.
+
 > [!TIP]
-> All intermediary files are available in [`.arrow` format](https://arrow.apache.org/overview/)
+> Many intermediary files are available in [`.arrow` format](https://arrow.apache.org/overview/)
 >
 > _(This link does not automatically open in a new window. Use CTRL+click (on Windows and Linux) or CMD+click (on MacOS) to open the link in a new window)_
 > 
 
-### STEP 0: Transfer phenotype data to `ivm`
+### `1-create-clean-demographics-notebook.ipynb`
 Phenotype data is large in both size and number of files, and stored in different directories at different directory depth.  Buffering issues affect processing of data directly from the `/library-red/` Google Cloud bucket.  It is therefore simpler to copy all phenotype file to the `ivm` running `QUANT_PY`.  This transfer can be effected within the pipeline by setting a pipeline flag.
 
 ### STEP 1: Import phenotype files with appropriate pre-processing
