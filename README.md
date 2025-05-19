@@ -26,12 +26,11 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
 3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
 4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of:
-   
-   5a. civil registration data
-   5b. HES APC data
-   5c. HES OP data
-   5d. cancer registry data
-   5e. ECDS data
+  5a. civil registration data
+  5b. HES APC data
+  5c. HES OP data
+  5d. cancer registry data
+  5e. ECDS data
 
 </details>
 
