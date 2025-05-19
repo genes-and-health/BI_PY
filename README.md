@@ -25,12 +25,7 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
 2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
 3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
-4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of:
-  5a. civil registration data
-  5b. HES APC data
-  5c. HES OP data
-  5d. cancer registry data
-  5e. ECDS data
+4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of: i) **civil registration data**, ii) **HES APC data**, iii) **HES OP data**, iv) **cancer registry data**, v) **ECDS data**
 
 </details>
 
@@ -38,7 +33,7 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 
 <details>
    
-<summary>`BI_PY` notebooks</summary>
+<summary>`BI_PY` notebooks (click arrow to expand)</summary>
 
 * **NB#1:** 1-create-clean-demographics-notebook.ipynb
 * **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
