@@ -17,10 +17,17 @@ The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WA
 
 ### Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
+
+<details>
+   
+<summary>Binary phenotype data sources (click arrow to expand)</summary>
+
 1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
 2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
 3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
 4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD 
+
+</details>
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.), and an addtional post-processing notebook (identified as `NB#99`), which may be subsumed into other notebooks in future versions of `BI_PY`:
 
