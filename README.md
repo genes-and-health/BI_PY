@@ -29,12 +29,7 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 
 </details>
 
-The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.), and an addtional post-processing notebook (identified as `NB#99`), which may be subsumed into other notebooks in future versions of `BI_PY`:
-
-<details>
-   
-<summary>`BI_PY` notebooks (click arrow to expand)</summary>
-
+The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
 * **NB#1:** 1-create-clean-demographics-notebook.ipynb
 * **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
 * **NB#3:** 3-process-datasets-barts-health.ipynb
@@ -43,9 +38,6 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 * **NB#6:** 6-merge-datasets-notebook.ipynb
 * **NB#7:** 7-three-and-four-digit-ICD.ipynb
 * **NB#8:** 8-custom-phenotypes.ipynb
-* **NB#99:** 99-post-processing-stop-gap.ipynb
-
-</details>
 
 The notebooks can be found in the [code](code) directory.
 
