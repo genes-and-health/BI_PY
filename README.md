@@ -55,13 +55,13 @@ The notebooks can be found in the [code](code) directory.
 
 ## Input files
 
-The pipeline requires a single imput file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv`.  This file can be found in the [inputs](inputs) directory.
+The pipeline requires a single imput file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`.  This file can be found in the [inputs](inputs) directory.
 
 The custom codelist .csv file has 4 columns: `phenotype`, `code`, `name`, `comment`.
 
 <details>
    
-<summary>"GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv" file extract</summary>
+<summary>"GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv" file extract</summary>
   
 ```
 phenotype, code, name, comment
@@ -80,7 +80,14 @@ GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Myocardial infarc
 
 </details>
 
-In `GenesAndHealth_custombinary_codelist_v010_2025_05v3.csv` there are 287 binary trait codelists.
+In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 binary trait codelists** from various users:
+* **MULTIPLY-initiative**: 202 traits; e.g. Ankylosing_spondylitis
+* **GenomicsPLC/Consortium**: 16 traits; e.g. GNH0005_MyocardialInfarction_extended
+* **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse
+* **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD
+* 
+![image](https://github.com/user-attachments/assets/f1c3b10b-2539-4b82-bc32-68c671f6c25f)
+
 
 ## Pipeline steps
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
