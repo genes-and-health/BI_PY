@@ -7,7 +7,7 @@
 * Stuart Rison
 * Mike Samuels
 
-Based on the ptyhon/treetools pipeline written written by Caroline Morton and Saeed Bidi and contributions from:
+Based on the ptyhon/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
 * Sarah Finer
 * Sam Hodgson
 * Ben Jacobs
