@@ -177,8 +177,6 @@ Finally merge all the same types of dataset together, deduplicate and save.
 
 ### ` 4-process-datasets-bradford.ipynb`
 
-# Processing Bradford Datasets
-
 The Bradford datasets are in SNOMED, ICD10 and OPCS. There are 3 "cuts" of data representing 3 time periods when the data was made available. Each dataset comprises of multiple CSV files.
 
 We process the datasets in the following way:
