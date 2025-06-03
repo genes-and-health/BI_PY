@@ -81,13 +81,10 @@ GNH0002_CoronaryArteryDisease_narrow,22298000,SNOMED ConceptID,Myocardial infarc
 </details>
 
 In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 binary trait codelists** from various users:
-* **MULTIPLY-initiative**: 202 traits; e.g. Ankylosing_spondylitis
-* **GenomicsPLC/Consortium**: 16 traits; e.g. GNH0005_MyocardialInfarction_extended
-* **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse
-* **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD
-* 
-![image](https://github.com/user-attachments/assets/f1c3b10b-2539-4b82-bc32-68c671f6c25f)
-
+* **MULTIPLY-initiative**: 202 traits; e.g. Ankylosing_spondylitis \[ICD-10, SNOMED-CT, OPCS\]
+* **GenomicsPLC/Consortium**: 16 traits; e.g. GNH0005_MyocardialInfarction_extended \[ICD-10, SNOMED-CT, OPCS\]
+* **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse \[ICD-10 and/or SNOMED-CT and/or OPCS\]
+* **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD \[SNOMED-CT only\]
 
 ## Pipeline steps
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
@@ -142,7 +139,35 @@ Finally once we have done this to all the 7 time cuts of the data, we do the fol
 2. Deduplicate this "megafile"
 3. Save as `.arrow` file
 
+### ` 3-process-datasets-barts-health.ipynb`
 
+In third second notebook, we do the following:
+
+1. Process Barts healthcare datasets - SNOMED
+2. Process Barts healthcare dataset - ICD10
+3. Process Barts healthcare datatst - OPCS
+4. Map SNOMED datasets to ICD and combine with ICD10 dataset
+
+The barts healthcare datasets are in SNOMED, ICD10 and OPCS. There are 5 "cuts" of data representing 5 time periods when the data was made available. Each dataset comprises of multiple CSV files.
+
+We process the datasets in the following way:
+
+1. Load the data for each "type" of coding system per file
+2. Deduplicate and process
+3. Save as arrow file and with log file.
+4. We then remove all unrealistic dates via the dataset that we created in the first notebook
+5. Save this cleaned data file with log
+
+Once all the datasets have been created:
+
+1. Reload each dataset from file and merge with other datasets of the same type for a time period (i.e. the same cut of the data)
+2. Deduplicate and merge all the log files together
+3. Save in processed merged data folder
+
+Finally merge all the same types of dataset together, deduplicate and save.
+
+### ` 4-process-datasets-bradford.ipynb`
+NB. processing of Bradford data now takes place in notebook #4.
 
 STEP 1: Import phenotype files with appropriate pre-processing
 `R` is very good at handling "raggedness" but in doing so, it makes assumptions.  This can lead to the "wrong" data ending in a column.  Python can also import .csv/.tsv/.tab files and make assumptions about the seprators/raggedness/column data type but in `QUANT_PY` this is intentionally and explicitly avoided.  This means that some files need to be pre-processed.  This take the form of one or more of the following pre-processing operations:
