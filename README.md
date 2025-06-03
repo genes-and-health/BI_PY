@@ -86,7 +86,7 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 * **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse \[ICD-10 and/or SNOMED-CT and/or OPCS\]
 * **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD \[SNOMED-CT only\]
 
-# Locations/paths naming convention
+## Locations/paths naming convention
 
 1. We do not use relative paths.
 2. We do not explicitly use the word FOLDER in the naming, so `MEGADATA_LOCATION`, not `MEGADATA_FOLDER_LOCATION`.
@@ -176,6 +176,28 @@ Once all the datasets have been created:
 Finally merge all the same types of dataset together, deduplicate and save.
 
 ### ` 4-process-datasets-bradford.ipynb`
+
+# Processing Bradford Datasets
+
+The Bradford datasets are in SNOMED, ICD10 and OPCS. There are 3 "cuts" of data representing 3 time periods when the data was made available. Each dataset comprises of multiple CSV files.
+
+We process the datasets in the following way:
+
+1. Load the data for each "type" of coding system per file
+2. Deduplicate and process
+3. Save as arrow file and with log file.
+4. Then we add in the demographic data created by the first notebook and remove unrealistic data
+5. Save this "clean" data
+
+Once we have done this:
+
+1. Reload each dataset from file and merge with other datasets of the same type for a time period (i.e. the same cut of the data)
+2. Deduplicate and merge all the log files together
+3. Save
+
+Finally merge all the same types of dataset together, deduplicate and save.
+
+# GRAVEYARD BELOW
 NB. processing of Bradford data now takes place in notebook #4.
 
 STEP 1: Import phenotype files with appropriate pre-processing
