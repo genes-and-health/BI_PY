@@ -119,13 +119,30 @@ The reference datasets are:
 
 ### `2-process-datasets-discovery-primary-care.ipynb`
 
+### Coding system(s)
+* SNOMED-CT
+  
+### Data cuts
+
+There are 7 "cuts" of data representing 7 time periods when the data was made available. Each dataset comprises of at least two CSV files - a procedures and an observation file - but some have more.  At present, we only used the observation and procedures files.
+
+* 2024_12: Observations, Procedures
+* 2024_07: Observations, Procedures
+* 2023_11: Observations, Procedures
+* 2023_03: Observations, Procedures
+* 2023_01: _Corrupted data, not used_
+* 2022_12: Observations, Procedures
+* 2022_04: Observations, Procedures
+
+### Process
+
 This notebook is for processing the various datasets we have. We take in raw datasets, and we output processed datasets as `.arrow` files (binary) with their log files where appropriate.
 This notebook: 
 1. Processes primary care datasets (SNOMED codes)
 2. Where possible, maps SNOMED codes to ICD-10 codes
 
 Processing Primary Care Datasets
-The primary care datasets are in SNOMED. There are 7 "cuts" of data representing 7 time periods when the data was made available. Each dataset comprises of at least two CSV files - a procedures and an observation file - but some have more.
+The primary care datasets are in SNOMED. 
 We process datasets in the following way:
 
 1. Load data from the CSV in each dataset
