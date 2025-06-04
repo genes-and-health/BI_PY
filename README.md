@@ -110,11 +110,11 @@ Each notebook is described below.
 
 ### `1-create-clean-demographics-notebook.ipynb`
 
-This notebook is for processing the demographic dataset into a usable format. This is the first step in our process because when we come to cleaning and processing the other data that we have (notebook 2 to 5), we want to remove unrealistic data for example, events that happen before 1910 or in the future.
+This notebook is for processing the demographic dataset into a usable format. This is the first step in our process because when we come to cleaning and processing the other data that we have (notebook 2 to 5), we want to remove unrealistic data for example, events that happen before birth or in the future.
 
-In this first notebook, we take in 2 different reference datasets that allow us to map demographic information (age and sex) to nhs_numbers.  We process these and save the output as a `.arrows` file for use in subsequent `BI_PY`
+In this first notebook, we take in 2 different reference datasets that allow us to map demographic information (age and sex) to nhs_numbers.  We process these and save the output as a `.arrow` file for use in subsequent `BI_PY`
 The reference datasets are:
-* `2025_02_01__Megalinkage_forTRE.csv` (which links ExWAS and GWAS identifiers to `pseudo_nhs_number`s)
+* `2025_02_01__Megalinkage_forTRE.csv` which links ExWAS and GWAS identifiers to `pseudo_nhs_number`s
 * `QMUL__Stage1Questionnaire/2025_04_25__S1QSTredacted.csv` which clarifies volunteer age and gender.
 
 ### `2-process-datasets-discovery-primary-care.ipynb`
@@ -194,6 +194,35 @@ Once we have done this:
 3. Save
 
 Finally merge all the same types of dataset together, deduplicate and save.
+
+## `5-process-datasets-nhs-digital.ipynb`
+
+### Codesets
+* ICD-10 \[all non-ECDS\]
+* SNOMED-CT \[ECDS\]
+
+### Data cuts
+* 2025_03: HES_APC, HES_OP, ECDS
+* 2024_10: CIVREG, HES_APC, HES_OP, CANCER, ECDS
+* 2023_07: CIVREG, HES_APC, HES_OP, CANCER, ECDS
+* 2021_09: CIVREG, HES_APC, HES_OP
+
+#### ECDS data
+
+As of this release (version010), we now use ECDS (SNOMED-CT) data in `BI_PY`.  Because all other NHS Digital data sources used employ ICD-10, we collectively process all ECDS data together in the last step of the notebook.
+
+### Process
+
+We process the datasets in the following way:
+
+Load the dataset in turn
+Expand the wide files into multirow files so that one person can have multiple rows.
+Deduplicate
+Save
+We will then remove unrealistic dates with previously saved Demographic data from notebook 1, and save again.
+
+For some datasets, in particular the very wide datasets, there are a few issues which required some preprocessing. These steps will be removed in future where possible, when the custom library is updated. Where preprocessing has been required, the final pre-processed dataset is saved in a folder called `preprocessed_files`.
+
 
 # GRAVEYARD BELOW
 NB. processing of Bradford data now takes place in notebook #4.
