@@ -206,9 +206,21 @@ Once all the datasets have been created:
 
 Finally merge all the same types of dataset together, deduplicate and save.
 
-### ` 4-process-datasets-bradford.ipynb`
+## ` 4-process-datasets-bradford.ipynb`
 
-The Bradford datasets are in SNOMED, ICD10 and OPCS. There are 3 "cuts" of data representing 3 time periods when the data was made available. Each dataset comprises of multiple CSV files.
+### Coding system(s)
+* SNOMED-CT, ICD-10, OPCS
+  
+### Data cuts
+
+There are 4 "cuts" of data.
+
+* 2024_12: _no useable data in this cut_
+* 2023_05: ICD10 (`_gh_diagnoses_`), OPCS (`_gh_procedures_`), SNOMED (`_gh_cerner_diagnoses_`, `_gh_cerner_problems_`)
+* 2022_06: ICD10 (`_gh_diagnoses_`), OPCS (`_gh_procedures_`), SNOMED (`bradford_cerner_diagnoses_`, `bradford_cerner_problems_`)
+* 2021_02: ICD10 (`icd10_bfs_`), OPCS (`opcs_bfd_`)
+
+### Process
 
 We process the datasets in the following way:
 
