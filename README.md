@@ -108,7 +108,7 @@ Each notebook is described below.
 > _(This link does not automatically open in a new window. Use CTRL+click (on Windows and Linux) or CMD+click (on MacOS) to open the link in a new window)_
 > 
 
-### `1-create-clean-demographics-notebook.ipynb`
+## `1-create-clean-demographics-notebook.ipynb`
 
 This notebook is for processing the demographic dataset into a usable format. This is the first step in our process because when we come to cleaning and processing the other data that we have (notebook 2 to 5), we want to remove unrealistic data for example, events that happen before birth or in the future.
 
@@ -117,7 +117,7 @@ The reference datasets are:
 * `2025_02_01__Megalinkage_forTRE.csv` which links ExWAS and GWAS identifiers to `pseudo_nhs_number`s
 * `QMUL__Stage1Questionnaire/2025_04_25__S1QSTredacted.csv` which clarifies volunteer age and gender.
 
-### `2-process-datasets-discovery-primary-care.ipynb`
+## `2-process-datasets-discovery-primary-care.ipynb`
 
 ### Coding system(s)
 * SNOMED-CT
@@ -165,13 +165,25 @@ Finally once we have done this to all the 7 time cuts of the data, we do the fol
 2. Deduplicate this "megafile"
 3. Save as `.arrow` file
 
-### ` 3-process-datasets-barts-health.ipynb`
+## ` 3-process-datasets-barts-health.ipynb`
+
+### Coding system(s)
+* SNOMED-CT, ICD-10, OPCS
+  
+### Data cuts
+
+There are 4 "cuts" of data.
+
+* 2024_09: ICD10 (`RDE_OP_DIAGNOSIS`, ``), OPCS (`RDE_OPA_OPCS`), SNOMED (`RDE_MSDS`, `RDE_PC_PROBLEMS`, `RDE_PC_PROCEDURES`, )
+* 2023_12: ICD10 (`GH_APC_Diagnosis`, `GH_OP_Diagnosis`), OPCS (`GH_APC_OPCS`, `GH_OP_OPCS`), SNOMED (`GandH_PC_Diagnosis_Problems_Procedures`)
+* 2023_05: ICD10 (`GH_APC_Diagnosis`, `GH_OP_Diagnosis`), OPCS (`GH_APC_OPCS`, `GH_OP_OPCS`), SNOMED (`GandH_PC_Diagnosis`, `GandH_PC_Problems`, `GandH_PC_Procedures`)
+* 2022_03: ICD10 (`2022_05_23_icd10_combined_redacted.txt`), OPCS (`2022_05_23_opcs_combined_redacted.txt`), SNOMED (`GandH_PC_Diagnosis`, `GandH_PC_Problems`, `GandH_PC_Procedures`)
 
 In third second notebook, we do the following:
 
 1. Process Barts healthcare datasets - SNOMED
 2. Process Barts healthcare dataset - ICD10
-3. Process Barts healthcare datatst - OPCS
+3. Process Barts healthcare dataset - OPCS
 4. Map SNOMED datasets to ICD and combine with ICD10 dataset
 
 The barts healthcare datasets are in SNOMED, ICD10 and OPCS. There are 5 "cuts" of data representing 5 time periods when the data was made available. Each dataset comprises of multiple CSV files.
