@@ -174,10 +174,12 @@ Finally once we have done this to all the 7 time cuts of the data, we do the fol
 
 There are 4 "cuts" of data.
 
-* 2024_09: ICD10 (`RDE_OP_DIAGNOSIS`, ``), OPCS (`RDE_OPA_OPCS`), SNOMED (`RDE_MSDS`, `RDE_PC_PROBLEMS`, `RDE_PC_PROCEDURES`, )
+* 2024_09: ICD10 (`RDE_APC_DIAGNOSIS`, `RDE_OP_DIAGNOSIS`), OPCS (`RDE_APC_OPCS`, `RDE_OPA_OPCS`), SNOMED (`RDE_MSDS`, `RDE_PC_PROBLEMS`, `RDE_PC_PROCEDURES`, `RDE_ALL_PROCEDURES`)
 * 2023_12: ICD10 (`GH_APC_Diagnosis`, `GH_OP_Diagnosis`), OPCS (`GH_APC_OPCS`, `GH_OP_OPCS`), SNOMED (`GandH_PC_Diagnosis_Problems_Procedures`)
 * 2023_05: ICD10 (`GH_APC_Diagnosis`, `GH_OP_Diagnosis`), OPCS (`GH_APC_OPCS`, `GH_OP_OPCS`), SNOMED (`GandH_PC_Diagnosis`, `GandH_PC_Problems`, `GandH_PC_Procedures`)
 * 2022_03: ICD10 (`2022_05_23_icd10_combined_redacted.txt`), OPCS (`2022_05_23_opcs_combined_redacted.txt`), SNOMED (`GandH_PC_Diagnosis`, `GandH_PC_Problems`, `GandH_PC_Procedures`)
+
+### Process
 
 In third second notebook, we do the following:
 
