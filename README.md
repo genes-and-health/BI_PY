@@ -305,7 +305,7 @@ The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) t
 
 The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".  This notebook creates individual trait files for ICD-10 3-digit and ICD-10 4-digit codes and regenie input files and co-variate files for ICD-10 3-digit codes.
 
-The individual trait file .csv files have 4 columns: `phenotype`, `code`, `name`, `comment`.
+The individual trait file .csv files have 4 columns: `nhs_number`, `date`, `code`, `age_at_event`, `dataset_type`, `codelist_type`, `gender`, `age_range`.
 
 <details>
    
