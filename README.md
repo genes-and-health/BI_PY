@@ -303,7 +303,26 @@ The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) t
 
 ### Process
 
-The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
+The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".  This notebook creates individual trait files for ICD-10 3-digit and ICD-10 4-digit codes and regenie input files and co-variate files for ICD-10 3-digit codes.
+
+The individual trait file .csv files have 4 columns: `phenotype`, `code`, `name`, `comment`.
+
+<details>
+   
+<summary>Individual trait file extract</summary>
+
+```
+nhs_number,date,code,age_at_event,dataset_type,codelist_type,gender,age_range
+00...................................................18,20XX-XX-XX,E66,##.#,merged,ICD10,M,55-64
+44...................................................20,20XX-XX-XX,E66,##.#,merged,ICD10,F,16-24
+BC...................................................33,20XX-XX-XX,E66,##.#,merged,ICD10,F,45-54
+9B...................................................86,20XX-XX-XX,E66,##.#,merged,ICD10,F,25-34
+FD...................................................28,20XX-XX-XX,E66,##.#,merged,ICD10,M,65-74
+94...................................................34,20XX-XX-XX,E66,##.#,merged,ICD10,F,35-44
+6E...................................................03,20XX-XX-XX,E66,##.#,merged,ICD10,M,45-54
+A1...................................................32,20XX-XX-XX,E66,##.#,merged,ICD10,F,25-34
+```
+</details>
 
 > [!TIP]
 > Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
@@ -313,7 +332,7 @@ The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
 > On medical documents, the ICD code is often appended by letters that indicate the diagnostic certainty or the affected side of the body.
 > * G: Confirmed diagnosis
 > * V: Tentative diagnosis
-? * Z: Condition after
+> * Z: Condition after
 > * A: Excluded diagnosis
 > 
 > * L: Left
@@ -322,19 +341,18 @@ The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
 
 We have some codes appended with "D" which seems to be invalid (although appears in Google searches). We could (and indeed should) simply remove terminal B-Z characters and if terminal character is A delete the row as this represents an "Excluded diagnosis".
 
+The ICD-10 field clean-up is therefore performed as follows:
+* Remove all spaces
+* Exclude icd10 = "NA" rows
+* Exclude icd10 codes < 3 char length (minimum valid icd10 is 3 chars)
+* Exclude icd10 codes not starting with a letter
+* Exclude icd10 codes ending with an "A" rows; "A" suffixes represent "Excluded diagnosis"
+* Remove B-Z characters at end of icd10 code
+* Remove "X" and "." and "-"
+* Format to "XXX.X" if dots=True
+* Keeping up to 4 meaningful characters
 
-pythondef clean_icd10(lf: pl.LazyFrame, icd10_column: str = "code") -> pl.LazyFrame:
-    """
-    Cleans an ICD-10 column by:
-    - Removing all spaces
-    - Excluding icd10 = "NA" rows
-    - Excluding icd10 codes < 3 char length (minimum valid icd10 is 3 chars)
-    - Excluding icd10 codes not starting with a letter
-    - Excluding icd10 ending with an "A" rows; "A" suffixes represent "Excluded diagnosis"
-    - Removing B-Z characters at end of icd10 code
-    - Removing "X" and "." and "-"
-    - Formatting to "XXX.X" if dots=True
-    - Keeping up to 4 meaningful charactersRetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
+  
 
 
 
