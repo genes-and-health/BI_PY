@@ -8,22 +8,29 @@
 * Mike Samuels
 
 Based on the ptyhon/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
-* Sarah Finer
-* Sam Hodgson
-* Ben Jacobs
-* Stravoula Kanoni
-* Rohini Mathur
-* Caroline Morton
-* Daniel Stow
-* David van Heel
-* Julia Zollner.
-* and other G&H Team Data members
+| <!-- --> | <!-- --> | <!-- --> |
+|----------|----------|----------|
+| Sarah Finer | Sam Hodgson | Ben Jacobs |
+| Stravoula Kanoni | Rohini Mathur | Daniel Stow |
+| David van Heel | Julia Zollner |and other G&H Team Data members |
 
 ## Summary
 
-The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.
+The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.  `BI_PY` "runs" a list of such per-binary-phenotype codes against any code associated with a G&H volunteer.  If the volunteer has one or more such codes, they are associated with the relevant binary phenotye --allowing case-control type analyses against volunteers not associated with the bianry phenotype.
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
+
+The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
+* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
+* **NB#2:** [2-process-datasets-discovery-primary-care.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
+* **NB#3:** [3-process-datasets-barts-health.ipynb](Notebooks/3-process-datasets-barts-health.md)
+* **NB#4:** [4-process-datasets-bradford.ipynb](Notebooks/4-process-datasets-bradford.md)
+* **NB#5:** [5-process-datasets-nhs-digital.ipynb](Notebooks/5-process-datasets-nhs-digital.md)
+* **NB#6:** [6-merge-datasets-notebook.ipynb](Notebooks/6-merge-datasets-notebook.md)
+* **NB#7:** [7-three-and-four-digit-ICD.ipynb](Notebooks/7-three-and-four-digit-ICD.md)
+* **NB#8:** [8-custom-phenotypes.ipynb](Notebooks/8-custom-phenotypes.md)
+
+The .ipynb (Jupyter/VS code) notebooks can be found in the [code](code) directory.
 
 ## Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
@@ -41,17 +48,6 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 
 The source datafiles required are reasonably small **and `BI_PY` does not copy over any raw data from `../library-red/` to the ivm (cf. `QUANT_PY` which does)**.
 
-The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
-* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
-* **NB#2:** [2-process-datasets-discovery-primary-care.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
-* **NB#3:** [3-process-datasets-barts-health.ipynb](Notebooks/3-process-datasets-barts-health.md)
-* **NB#4:** [4-process-datasets-bradford.ipynb](Notebooks/4-process-datasets-bradford.md)
-* **NB#5:** [5-process-datasets-nhs-digital.ipynb](Notebooks/5-process-datasets-nhs-digital.md)
-* **NB#6:** [6-merge-datasets-notebook.ipynb](Notebooks/6-merge-datasets-notebook.md)
-* **NB#7:** [7-three-and-four-digit-ICD.ipynb](Notebooks/7-three-and-four-digit-ICD.md)
-* **NB#8:** [8-custom-phenotypes.ipynb](Notebooks/8-custom-phenotypes.md)
-
-The notebooks can be found in the [code](code) directory.
 
 ## Input files
 
