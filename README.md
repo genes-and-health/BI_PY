@@ -307,6 +307,8 @@ The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
 
 > [!TIP] Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
 > See: [https://gesund.bund.de/en/icd-code-search/g01](https://gesund.bund.de/en/icd-code-search/g01)
+
+
 > 
 > Additional indicators:
 > On medical documents, the ICD code is often appended by letters that indicate the diagnostic certainty or the affected side of the body.
