@@ -305,9 +305,9 @@ The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) t
 
 The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
 
-> [!TIP] Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
+> [!TIP]
+> Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
 > See: [https://gesund.bund.de/en/icd-code-search/g01](https://gesund.bund.de/en/icd-code-search/g01)
-
 
 > 
 > Additional indicators:
