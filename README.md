@@ -303,7 +303,7 @@ The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) t
 
 ### Process
 
-The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".  This notebook creates individual trait files for ICD-10 3-digit and ICD-10 4-digit codes and regenie input files and co-variate files for ICD-10 3-digit codes.
+This notebook creates individual trait files for ICD-10 3-digit and ICD-10 4-digit codes and regenie input files and co-variate files for ICD-10 3-digit codes.
 
 The individual trait file .csv files have 4 columns: `nhs_number`, `date`, `code`, `age_at_event`, `dataset_type`, `codelist_type`, `gender`, `age_range`.
 
@@ -323,6 +323,18 @@ FD...................................................28,20XX-XX-XX,E66,##.#,merg
 A1...................................................32,20XX-XX-XX,E66,##.#,merged,ICD10,F,25-34
 ```
 </details>
+
+reginie files are created for the 51k GWAS and 55k ExWAS datasets; each has an associated **age at first diagnosis** co-variate file:
+
+51k GWAS:
+* `2025_05_icd10_3d_regenie_51koct2024_65A_Topmed.tsv` (regenie input file)
+* `2025_05_regenie_51koct2024_65A_Topmed_Binary_3-digit_ICD-10_age_at_first_diagnosis_megawide.tsv` (co-variate file)
+
+55kExWAS:
+* `2025_05_icd10_3d_regenie_55k_BroadExomeIDs.tsv`
+* `2025_05_regenie_55k_BroadExomeIDs_Binary_3-digit_ICD-10_age_at_first_diagnosis_megawide.tsv`
+
+The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".  
 
 > [!TIP]
 > Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
