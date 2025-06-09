@@ -82,6 +82,12 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 * **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse \[ICD-10 and/or SNOMED-CT and/or OPCS\]
 * **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD \[SNOMED-CT only\]
 
+## Output files
+
+All final output is saved to an `outputs` directory at the root level of the `BI_PI/versionxyz` directory 
+
+If `outputs` does not exisit, the pipeline creates the directory at the root level of the `BI_PI/versionxyz` directory when required.
+
 ## Locations/paths naming convention
 
 1. We do not use relative paths.
