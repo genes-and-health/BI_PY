@@ -305,6 +305,8 @@ The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) t
 
 This notebook creates individual trait files for ICD-10 3-digit and ICD-10 4-digit codes and regenie input files and co-variate files for ICD-10 3-digit codes.
 
+#### individual trait files
+
 The individual trait file .csv files have 4 columns: `nhs_number`, `date`, `code`, `age_at_event`, `dataset_type`, `codelist_type`, `gender`, `age_range`.
 
 <details>
@@ -324,6 +326,7 @@ A1...................................................32,20XX-XX-XX,E66,##.#,merg
 ```
 </details>
 
+#### regenie files
 regenie files are created for the 51k GWAS and 55k ExWAS datasets; each has an associated **age at first diagnosis** co-variate file:
 
 51k GWAS:
@@ -367,3 +370,53 @@ The ICD-10 field clean-up is therefore performed as follows:
 * Keeping up to 4 meaningful characters
 
 ## `8-custom-phenotypes.ipynb`
+
+### Codesets
+
+* ICD-10, SNOMED-CT and OPCS
+* Please note that when considering custom phenotypes, we do **NOT** used ICD-10 codes obtained through mapping (i.e. we use only "native" ICD-10 codes)
+
+### Data
+
+Custom phenotypes are defined in the `.../BI_PY/inputs/GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` file.
+Individual to code mapping comes from **`icd_only.arrow`** + **`opcs_only.arrow`** + **`snomed_only.arrow`**
+**`icd_and_mapped_snomed.arrow`**
+
+### Process
+
+This notebook creates individual trait files and regenie input files and co-variate files  for custom phenotypes.
+
+We import the ICD-10, SNOMED-CT and OPCS mapping dataframes and join these to megadata files.
+We then deduplicate and "tidy-up" and save one individual_trait_file per phenotype.
+
+#### individual trait files
+
+The individual trait file .csv files have 4 columns: `nhs_number`, `date`, `code`, `age_at_event`, `dataset_type`, `codelist_type`, `gender`, `age_range`.
+
+<details>
+   
+<summary>Individual trait file extract</summary>
+
+```
+nhs_number,date,code,age_at_event,dataset_type,codelist_type,gender,age_range
+00...................................................18,20XX-XX-XX,E66,##.#,merged,ICD10,M,55-64
+44...................................................20,20XX-XX-XX,E66,##.#,merged,ICD10,F,16-24
+BC...................................................33,20XX-XX-XX,E66,##.#,merged,ICD10,F,45-54
+9B...................................................86,20XX-XX-XX,E66,##.#,merged,ICD10,F,25-34
+FD...................................................28,20XX-XX-XX,E66,##.#,merged,ICD10,M,65-74
+94...................................................34,20XX-XX-XX,E66,##.#,merged,ICD10,F,35-44
+6E...................................................03,20XX-XX-XX,E66,##.#,merged,ICD10,M,45-54
+A1...................................................32,20XX-XX-XX,E66,##.#,merged,ICD10,F,25-34
+```
+</details>
+
+#### regenie files
+regenie files are created for the 51k GWAS and 55k ExWAS datasets; each has an associated **age at first diagnosis** co-variate file:
+
+51k GWAS:
+* `2025_05_custom_phenotypes_regenie_51koct2024_65A_Topmed.tsv`
+* `2025_05_regenie_51koct2024_65A_Topmed_Binary_custom_phenotypes_age_at_first_diagnosis_megawide.tsv`
+
+55k ExWAS:
+* `2025_05_custom_phenotypes_regenie_55k_BroadExomeIDs.tsv` (regenie input file)
+* `2025_05_regenie_55k_BroadExomeIDs_Binary_custom_phenotypes_age_at_first_diagnosis_megawide-digit_ICD-10_age_at_first_diagnosis_megawide.tsv` (co-variate file)
