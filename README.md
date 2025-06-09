@@ -86,7 +86,7 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 
 All final output is saved to an `outputs` directory at the root level of the `BI_PI/versionxyz` directory 
 
-If `outputs` does not exisit, the pipeline creates the directory at the root level of the `BI_PI/versionxyz` directory when required.
+If `outputs` is not present, the pipeline creates the directory at the root level of the `BI_PI/versionxyz` directory when required.
 
 ## Locations/paths naming convention
 
