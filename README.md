@@ -51,7 +51,7 @@ The source datafiles required are reasonably small **and `BI_PY` does not copy o
 
 ## Input files
 
-The pipeline requires a single imput file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`.  This file can be found in the [inputs](inputs) directory.
+The pipeline requires a single input file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`.  This file can be found in the [inputs](inputs) directory.
 
 The custom codelist .csv file has 4 columns: `phenotype`, `code`, `name`, `comment`.
 
