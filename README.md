@@ -20,17 +20,18 @@ The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait da
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
 
-The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
-* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
-* **NB#2:** [2-process-datasets-discovery-primary-care.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
-* **NB#3:** [3-process-datasets-barts-health.ipynb](Notebooks/3-process-datasets-barts-health.md)
-* **NB#4:** [4-process-datasets-bradford.ipynb](Notebooks/4-process-datasets-bradford.md)
-* **NB#5:** [5-process-datasets-nhs-digital.ipynb](Notebooks/5-process-datasets-nhs-digital.md)
-* **NB#6:** [6-merge-datasets-notebook.ipynb](Notebooks/6-merge-datasets-notebook.md)
-* **NB#7:** [7-three-and-four-digit-ICD.ipynb](Notebooks/7-three-and-four-digit-ICD.md)
-* **NB#8:** [8-custom-phenotypes.ipynb](Notebooks/8-custom-phenotypes.md)
+The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.) each described separately:
 
-The .ipynb (Jupyter/VS code) notebooks can be found in the [code](code) directory.
+* [**1-create-clean-demographics-notebook**.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
+* [**2-process-datasets-discovery-primary-care**.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
+* [**3-process-datasets-barts-health**.ipynb](Notebooks/3-process-datasets-barts-health.md)
+* [**4-process-datasets-bradford**.ipynb](Notebooks/4-process-datasets-bradford.md)
+* [**5-process-datasets-nhs-digital**.ipynb](Notebooks/5-process-datasets-nhs-digital.md)
+* [**6-merge-datasets-notebook**.ipynb](Notebooks/6-merge-datasets-notebook.md)
+* [**7-three-and-four-digit-ICD**.ipynb](Notebooks/7-three-and-four-digit-ICD.md)
+* [**8-custom-phenotypes**.ipynb](Notebooks/8-custom-phenotypes.md)
+
+The .ipynb (Jupyter/VS code) notebooks themselves can be found in the [code](code) directory.
 
 ## Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
@@ -47,7 +48,6 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 </details>
 
 The source datafiles required are reasonably small **and `BI_PY` does not copy over any raw data from `../library-red/` to the ivm (cf. `QUANT_PY` which does)**.
-
 
 ## Input files
 
@@ -91,12 +91,10 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 5. When referred to as `_PATH`, the variable is an `AnyPath` path object.
 6. The folder order is "what it is" / "Where it's from" so, for example megadata/primary_care not primary_care/megadata; so `MEGADATA_PRIMARY_CARE_LOCATION` or `PROCESSED_DATASETS_PRIMARY_CARE_PATH`
 
-## Pipeline steps
+## Running the pipeline
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
 
 The pipeline is constituted of a series of independent python Jupyter notebooks.  They can be run individually but they are best run sequentially and contemporaneously.  To this effect, running the last cell in the notebook will save and close the current notebook and automatically open the next notebook.
-
-Each notebook is described below.
 
 > [!TIP]
 > Many intermediary files are available in [`.arrow` format](https://arrow.apache.org/overview/)
