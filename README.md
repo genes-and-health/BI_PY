@@ -289,7 +289,7 @@ In addition to this, we have mapped the SNOMED datasets to ICD10 and we will mer
 
 * `SNOMED_MAPPED_AND_ICD dataset`: \[**`icd_only.arrow`** + `mapped_data_primary_icd` + `mapped_data_barts_icd` + ``mapped_data_bradford_icd` + `mapped_data_nhs_digital_icd`\] => **`icd_and_mapped_snomed.arrow`**
 
-
+The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) to produce **`icd_and_mapped_snomed_3_digit_deduplication.arrow`**
 
 # `7-three-and-four-digit-ICD.ipynb`
 # `8-custom-phenotypes.ipynb`
