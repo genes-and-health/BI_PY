@@ -324,7 +324,7 @@ A1...................................................32,20XX-XX-XX,E66,##.#,merg
 ```
 </details>
 
-reginie files are created for the 51k GWAS and 55k ExWAS datasets; each has an associated **age at first diagnosis** co-variate file:
+regenie files are created for the 51k GWAS and 55k ExWAS datasets; each has an associated **age at first diagnosis** co-variate file:
 
 51k GWAS:
 * `2025_05_icd10_3d_regenie_51koct2024_65A_Topmed.tsv` (regenie input file)
@@ -333,6 +333,8 @@ reginie files are created for the 51k GWAS and 55k ExWAS datasets; each has an a
 55kExWAS:
 * `2025_05_icd10_3d_regenie_55k_BroadExomeIDs.tsv`
 * `2025_05_regenie_55k_BroadExomeIDs_Binary_3-digit_ICD-10_age_at_first_diagnosis_megawide.tsv`
+
+#### ICD-10 clean-up procedure
 
 The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".  
 
@@ -363,11 +365,5 @@ The ICD-10 field clean-up is therefore performed as follows:
 * Remove "X" and "." and "-"
 * Format to "XXX.X" if dots=True
 * Keeping up to 4 meaningful characters
-
-  
-
-
-
-
 
 ## `8-custom-phenotypes.ipynb`
