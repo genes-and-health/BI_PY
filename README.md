@@ -90,7 +90,7 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 
 1. We do not use relative paths.
 2. We do not explicitly use the word FOLDER in the naming, so `MEGADATA_LOCATION`, not `MEGADATA_FOLDER_LOCATION`.
-3. Location and path are in `UPPER_CASE`.
+3. Locations and paths are in `UPPER_CASE`.
 4. When referred to as `_LOCATION`, the variable contain a string with the path.
 5. When referred to as `_PATH`, the variable is an `AnyPath` path object.
 6. The folder order is "what it is" / "Where it's from" so, for example megadata/primary_care not primary_care/megadata; so `MEGADATA_PRIMARY_CARE_LOCATION` or `PROCESSED_DATASETS_PRIMARY_CARE_PATH`
@@ -98,7 +98,7 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 ## Pipeline steps
 It is advisable to run the pipeline on a VM with lots of memory, typically an `n2d-highmem` 32 processor VM with 256Gb memory.
 
-The pipeline is constituted of a series of independent python Jupyter notebooks.  They can be run individually but they are best run sequentially and contemporaneously.  To this effect, running the list cell in the notebook will save and close the current notebook and automatically open the next notebook.
+The pipeline is constituted of a series of independent python Jupyter notebooks.  They can be run individually but they are best run sequentially and contemporaneously.  To this effect, running the last cell in the notebook will save and close the current notebook and automatically open the next notebook.
 
 Each notebook is described below.
 
@@ -267,5 +267,29 @@ We will then remove unrealistic dates with previously saved Demographic data fro
 For some datasets, in particular the very wide datasets, there are a few issues which required some preprocessing. These steps will be removed in future where possible, when the custom library is updated. Where preprocessing has been required, the final pre-processed dataset is saved in a folder called `preprocessed_files`.
 
 # `6-merge-datasets-notebook.ipynb`
+
+### Codesets
+
+* ICD-10, SNOMED-CT, OPCS
+* *and* SNOMED mapped to ICD-10
+
+### Data
+
+There are no "cuts" here, this notebook uses the output of the primary care, Barts Trust, Bradford Trust and NHS Digital data-processing notebooks.
+
+### Process
+
+In this notebook, we upload the data files created in notebooks 2 to 5. We are aiming to get all the data of the same type together so we end up with (files in bold are in the `.../BI_PY/megadata/` directory):
+
+* `ICD10 dataset`: \["Native" = `barts_icd` + `bratford_icd` + `nhs_d_icd` (there is no native ICD-10 data in `primary_care`)\] => **`icd_only.arrow`** 
+* `OPCS dataset`: \[`barts_icd` + `bratford_icd` (only sources of OPCS codes are secondary care)\] => **`opcs_only.arrow`**
+* `SNOMED dataset`: \[`primary_snomed` + `barts_icd` + `bratford_icd` + `nhs_d_icd`\] => **`snomed_only.arrow`**
+
+In addition to this, we have mapped the SNOMED datasets to ICD10 and we will merge these in as well so we end up with:
+
+* `SNOMED_MAPPED_AND_ICD dataset`: \[**`icd_only.arrow`** + `mapped_data_primary_icd` + `mapped_data_barts_icd` + ``mapped_data_bradford_icd` + `mapped_data_nhs_digital_icd`\] => **`icd_and_mapped_snomed.arrow`**
+
+
+
 # `7-three-and-four-digit-ICD.ipynb`
 # `8-custom-phenotypes.ipynb`
