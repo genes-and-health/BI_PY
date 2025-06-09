@@ -42,7 +42,7 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 The source datafiles required are reasonably small **and `BI_PY` does not copy over any raw data from `../library-red/` to the ivm (cf. `QUANT_PY` which does)**.
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
-* **NB#1:** 1-create-clean-demographics-notebook.ipynb
+* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook)
 * **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
 * **NB#3:** 3-process-datasets-barts-health.ipynb
 * **NB#4:** 4-process-datasets-bradford.ipynb
