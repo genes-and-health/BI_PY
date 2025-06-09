@@ -42,14 +42,14 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 The source datafiles required are reasonably small **and `BI_PY` does not copy over any raw data from `../library-red/` to the ivm (cf. `QUANT_PY` which does)**.
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.):
-* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook)
-* **NB#2:** 2-process-datasets-discovery-primary-care.ipynb
-* **NB#3:** 3-process-datasets-barts-health.ipynb
-* **NB#4:** 4-process-datasets-bradford.ipynb
-* **NB#5:** 5-process-datasets-nhs-digital.ipynb
-* **NB#6:** 6-merge-datasets-notebook.ipynb
-* **NB#7:** 7-three-and-four-digit-ICD.ipynb
-* **NB#8:** 8-custom-phenotypes.ipynb
+* **NB#1:** [1-create-clean-demographics-notebook.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
+* **NB#2:** [2-process-datasets-discovery-primary-care.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
+* **NB#3:** [3-process-datasets-barts-health.ipynb](Notebooks/3-process-datasets-barts-health.md)
+* **NB#4:** [4-process-datasets-bradford.ipynb](Notebooks/4-process-datasets-bradford.md)
+* **NB#5:** [5-process-datasets-nhs-digital.ipynb](Notebooks/5-process-datasets-nhs-digital.md)
+* **NB#6:** [6-merge-datasets-notebook.ipynb](Notebooks/6-merge-datasets-notebook.md)
+* **NB#7:** [7-three-and-four-digit-ICD.ipynb](Notebooks/7-three-and-four-digit-ICD.md)
+* **NB#8:** [8-custom-phenotypes.ipynb](Notebooks/8-custom-phenotypes.md)
 
 The notebooks can be found in the [code](code) directory.
 
