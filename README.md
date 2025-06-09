@@ -7,7 +7,7 @@
 * Stuart Rison
 * Mike Samuels
 
-Derived from the ptyhon/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
+Derived from the python/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
 | <!-- --> | <!-- --> | <!-- --> |
 |----------|----------|----------|
 | Sarah Finer | Sam Hodgson | Ben Jacobs |
