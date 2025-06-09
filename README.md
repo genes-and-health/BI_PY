@@ -266,7 +266,7 @@ We will then remove unrealistic dates with previously saved Demographic data fro
 
 For some datasets, in particular the very wide datasets, there are a few issues which required some preprocessing. These steps will be removed in future where possible, when the custom library is updated. Where preprocessing has been required, the final pre-processed dataset is saved in a folder called `preprocessed_files`.
 
-# `6-merge-datasets-notebook.ipynb`
+## `6-merge-datasets-notebook.ipynb`
 
 ### Codesets
 
@@ -287,9 +287,56 @@ In this notebook, we upload the data files created in notebooks 2 to 5. We are a
 
 In addition to this, we have mapped the SNOMED datasets to ICD10 and we will merge these in as well so we end up with:
 
-* `SNOMED_MAPPED_AND_ICD dataset`: \[**`icd_only.arrow`** + `mapped_data_primary_icd` + `mapped_data_barts_icd` + ``mapped_data_bradford_icd` + `mapped_data_nhs_digital_icd`\] => **`icd_and_mapped_snomed.arrow`**
+* `SNOMED_MAPPED_AND_ICD dataset`: \[**`icd_only.arrow`** + `mapped_data_primary_icd` + `mapped_data_barts_icd` + `mapped_data_bradford_icd` + `mapped_data_nhs_digital_icd`\] => **`icd_and_mapped_snomed.arrow`**
 
 The **`icd_and_mapped_snomed.arrow`** is processed (truncated to 3 characters) to produce **`icd_and_mapped_snomed_3_digit_deduplication.arrow`**
 
-# `7-three-and-four-digit-ICD.ipynb`
-# `8-custom-phenotypes.ipynb`
+## `7-three-and-four-digit-ICD.ipynb`
+
+### Codesets
+
+* ICD-10 *and* SNOMED mapped to ICD-10
+
+### Data
+
+**`icd_and_mapped_snomed.arrow`**
+
+### Process
+
+The ICD-10 codes in **`icd_and_mapped_snomed.arrow`** are "cleaned-up".
+
+> [!TIP] Letter suffixes after ICD-10 codes are not necessarily invalid, they are used for additional indication such as diagnostic certainty or affected side of body.
+> See: [https://gesund.bund.de/en/icd-code-search/g01](https://gesund.bund.de/en/icd-code-search/g01)
+> 
+> Additional indicators:
+> On medical documents, the ICD code is often appended by letters that indicate the diagnostic certainty or the affected side of the body.
+> * G: Confirmed diagnosis
+> * V: Tentative diagnosis
+? * Z: Condition after
+> * A: Excluded diagnosis
+> 
+> * L: Left
+> * R: Right
+> * B: Both sides
+
+We have some codes appended with "D" which seems to be invalid (although appears in Google searches). We could (and indeed should) simply remove terminal B-Z characters and if terminal character is A delete the row as this represents an "Excluded diagnosis".
+
+
+pythondef clean_icd10(lf: pl.LazyFrame, icd10_column: str = "code") -> pl.LazyFrame:
+    """
+    Cleans an ICD-10 column by:
+    - Removing all spaces
+    - Excluding icd10 = "NA" rows
+    - Excluding icd10 codes < 3 char length (minimum valid icd10 is 3 chars)
+    - Excluding icd10 codes not starting with a letter
+    - Excluding icd10 ending with an "A" rows; "A" suffixes represent "Excluded diagnosis"
+    - Removing B-Z characters at end of icd10 code
+    - Removing "X" and "." and "-"
+    - Formatting to "XXX.X" if dots=True
+    - Keeping up to 4 meaningful charactersRetryClaude does not have the ability to run the code it generates yet.Claude can make mistakes. Please double-check responses. Sonnet 4
+
+
+
+
+
+## `8-custom-phenotypes.ipynb`
