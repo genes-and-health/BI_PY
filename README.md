@@ -7,12 +7,12 @@
 * Stuart Rison
 * Mike Samuels
 
-Based on the ptyhon/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
+Derived from the ptyhon/treetools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
 | <!-- --> | <!-- --> | <!-- --> |
 |----------|----------|----------|
 | Sarah Finer | Sam Hodgson | Ben Jacobs |
 | Stravoula Kanoni | Rohini Mathur | Daniel Stow |
-| David van Heel | Julia Zollner |and other G&H Team Data members |
+| David van Heel | Julia Zollner | and other G&H Team Data members |
 
 ## Summary
 
