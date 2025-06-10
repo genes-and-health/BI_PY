@@ -88,6 +88,20 @@ All final output is saved to an `outputs` directory at the root level of the `BI
 
 If `outputs` is not present, the pipeline creates the directory at the root level of the `BI_PI/versionxyz` directory when required.
 
+The `outputs` directory hierarchy is as follows:
+
+```
+outputs  
+├── custom_phenotypes  
+│   ├── individual_trait_files  
+│   └── regenie  
+└── icd10  
+    ├── individual_trait_files  
+    │   ├── 3_digit_icd  
+    │   └── 4_digit_icd  
+    └── regenie
+```
+
 ## Locations/paths naming convention
 
 1. We do not use relative paths.
