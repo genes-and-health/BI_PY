@@ -16,7 +16,7 @@ Derived from the python/tre-tools pipeline written by Caroline Morton and Saeed 
 
 ## Summary
 
-The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.  `BI_PY` "runs" a list of such per-binary-phenotype codes against any code associated with a G&H volunteer.  If the volunteer has one or more such codes, they are associated with the relevant binary phenotye --allowing case-control type analyses against volunteers not associated with the bianry phenotype.
+The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.  `BI_PY` "runs" a list of such per-binary-phenotype codes against any code associated with a G&H volunteer.  If the volunteer has one or more such codes, they are associated with the relevant binary phenotye --allowing case-control type analyses against volunteers not associated with the binary phenotype.
 
 The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
 
