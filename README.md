@@ -22,7 +22,7 @@ The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WA
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.) each described separately:
 
-* [**1-create-clean-demographics-notebook**.ipynb](Notebooks/1-create-clean-demographics-notebook.md)
+* [**1-create-clean-demographics-notebook**.ipynb](Notebooks/1-create-clean-demographics-notebook.md) \[code: [.ipynb](Code/notebooks/1-create-clean-demographics-notebook.ipynb) | [.py](Code/python_scripts/1-create-clean-demographics-notebook.py)\] 
 * [**2-process-datasets-discovery-primary-care**.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md)
 * [**3-process-datasets-barts-health**.ipynb](Notebooks/3-process-datasets-barts-health.md)
 * [**4-process-datasets-bradford**.ipynb](Notebooks/4-process-datasets-bradford.md)
