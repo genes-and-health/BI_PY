@@ -80,6 +80,8 @@ In `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv` there are **285 bin
 * **Bespoke researcher/research group**: 42 traits; e.g. MGH_MitralValveProlapse \[ICD-10 and/or SNOMED-CT and/or OPCS\]
 * **NEW! NHS Primary Care Domain refsets**: 25 traits; e.g. QOF_CKD_COD \[SNOMED-CT only\]
 
+Click [`GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`](https://docs.google.com/spreadsheets/d/1ipwdF2j_owfr_QbkDYk1rk0TW3KtdfQYVQn-Vf-o38s/edit?usp=sharing) to access a Google document detailing the binary trait codelists (tab `v010_2025_05_BinaryTraits_Custom_Codelists`)
+
 ## Output files
 
 All final output is saved to an `outputs` directory at the root level of the `/versionxyz-YYYY-mm/BI_PI` directory 
