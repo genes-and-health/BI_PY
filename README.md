@@ -16,9 +16,9 @@ Derived from the python/tre-tools pipeline written by Caroline Morton and Saeed 
 
 ## Summary
 
-The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.  `BI_PY` "runs" a list of such per-binary-phenotype codes against any code associated with a G&H volunteer.  If the volunteer has one or more such codes, they are associated with the relevant binary phenotye --allowing case-control type analyses against volunteers not associated with the binary phenotype.
+The Genes & Health (G&H) `BI_PY` pipeline extracts and processes binary trait data from G&H phenotype data.  Relevant codes may be SNOMED-CT, ICD-10 or OPCS codes.  `BI_PY` "runs" a list of such per-binary-phenotype codes against any code associated with a G&H volunteer.  If the volunteer has one or more such codes, they are associated with the relevant binary phenotype --allowing case-control type analyses against volunteers not associated with the binary phenotype.
 
-The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual's earliest applicable code and age at first diagnosis).
+The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WAS analysis, as well as generic files for each binary trait at a _per individual_ level (one row per individual summarising the individual’s earliest applicable code and age at first diagnosis).
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.) each described separately:
 
@@ -41,7 +41,7 @@ The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`
 1. **DSA__BartHealth_NHS_Trust**: Secondary care data from the Barts Health NHS Trust \[North East London: ~40,000 individuals with data\]
 2. **DSA__BradfordTeachingHospitals_NHSFoundation_Trust**: Secondary care data from the Bradford Teaching Hospitals NHS Trust \[Bradford and environs: ~1,700 individuals with data\]
 3. **DSA__Discovery_7CCGs**: Primary care data from the North East London ICS \[North East London: ~45,000 individuals with data\]
-4. **DSA_NHSDigital**: Data from from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of: i) **civil registration data**, ii) **HES APC data**, iii) **HES OP data**, iv) **cancer registry data**, v) **ECDS data**
+4. **DSA_NHSDigital**: Data from NHS Digital (NHSD) \[England-wide: ~TBC individuals with data].  Data files vary with each cut of NHSD but include one or more of: i) **civil registration data**, ii) **HES APC data**, iii) **HES OP data**, iv) **cancer registry data**, v) **ECDS data**
 
 </details>
 
@@ -49,7 +49,7 @@ The source datafiles required are reasonably small **and `BI_PY` does not copy o
 
 ## Input files
 
-The pipeline requires a single input file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`.  This file can be found in the [inputs](inputs) directory.
+The pipeline requires a single input file.  This file is a `.csv` file which gives a set of SNOMED +/- ICD-10 +/- OPCS codes each of which constitute a phenotype.  The current version of this input file is `GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`.  This file can be found in the [inputs](inputs) directory.
 
 The custom codelist .csv file has 4 columns: `phenotype`, `code`, `name`, `comment`.
 
