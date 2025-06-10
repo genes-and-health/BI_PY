@@ -29,7 +29,7 @@ The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB
 * [**5-process-datasets-nhs-digital**.ipynb](Notebooks/5-process-datasets-nhs-digital.md) \[code: [.ipynb](Code/notebooks/5-process-datasets-nhs-digital.ipynb) | [.py](Code/python_scripts/5-process-datasets-nhs-digital.py)\] 
 * [**6-merge-datasets-notebook**.ipynb](Notebooks/6-merge-datasets-notebook.md) \[code: [.ipynb](Code/notebooks/6-merge-datasets-notebook.ipynb) | [.py](Code/python_scripts/6-merge-datasets-notebook.py)\] 
 * [**7-three-and-four-digit-ICD**.ipynb](Notebooks/7-three-and-four-digit-ICD.md) \[code: [.ipynb](Code/notebooks/7-three-and-four-digit-ICD.ipynb) | [.py](Code/python_scripts/7-three-and-four-digit-ICD.py)\] 
-* [**8-custom-phenotypes**.ipynb](Notebooks/8-custom-phenotypes.md) \[code: [.ipynb](Code/notebooks/8-custom-phenotypes.ipynb) | [.py](Code/python_scripts/8-custom-phenotypes.py)\] 
+* [**8-custom-phenotypes**.ipynb](Notebooks/8-custom-phenotypes.md) \[code: [.ipynb](Code/notebooks/8-custom-phenotypes-individual-trait-files-and-regenie.ipynb) | [.py](Code/python_scripts/8-custom-phenotypes-individual-trait-files-and-regenie.py)\] 
 
 ## Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
