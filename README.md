@@ -22,14 +22,14 @@ The pipeline creates files and covariate files suitable for `regenie` \[G/Ex\]WA
 
 The pipeline is constituted of 8 formal sequential python notebooks (`NB#1`, `NB#2`, etc.) each described separately:
 
-* [**1-create-clean-demographics-notebook**.ipynb](Notebooks/1-create-clean-demographics-notebook.md) \[code: [.ipynb](Code/notebooks/1-create-clean-demographics-notebook.ipynb) | [.py](Code/python_scripts/1-create-clean-demographics-notebook.py)\] 
-* [**2-process-datasets-discovery-primary-care**.ipynb](Notebooks/2-process-datasets-discovery-primary-care.md) \[code: [.ipynb](Code/notebooks/2-process-datasets-discovery-primary-care.ipynb) | [.py](Code/python_scripts/2-process-datasets-discovery-primary-care)\] 
-* [**3-process-datasets-barts-health**.ipynb](Notebooks/3-process-datasets-barts-health.md) \[code: [.ipynb](Code/notebooks/3-process-datasets-barts-health.ipynb) | [.py](Code/python_scripts/3-process-datasets-barts-health.py)\] 
-* [**4-process-datasets-bradford**.ipynb](Notebooks/4-process-datasets-bradford.md) \[code: [.ipynb](Code/notebooks/4-process-datasets-bradford.ipynb) | [.py](Code/python_scripts/4-process-datasets-bradford.py)\] 
-* [**5-process-datasets-nhs-digital**.ipynb](Notebooks/5-process-datasets-nhs-digital.md) \[code: [.ipynb](Code/notebooks/5-process-datasets-nhs-digital.ipynb) | [.py](Code/python_scripts/5-process-datasets-nhs-digital.py)\] 
-* [**6-merge-datasets-notebook**.ipynb](Notebooks/6-merge-datasets-notebook.md) \[code: [.ipynb](Code/notebooks/6-merge-datasets-notebook.ipynb) | [.py](Code/python_scripts/6-merge-datasets-notebook.py)\] 
-* [**7-three-and-four-digit-ICD**.ipynb](Notebooks/7-three-and-four-digit-ICD.md) \[code: [.ipynb](Code/notebooks/7-three-and-four-digit-ICD.ipynb) | [.py](Code/python_scripts/7-three-and-four-digit-ICD.py)\] 
-* [**8-custom-phenotypes**.ipynb](Notebooks/8-custom-phenotypes.md) \[code: [.ipynb](Code/notebooks/8-custom-phenotypes-individual-trait-files-and-regenie.ipynb) | [.py](Code/python_scripts/8-custom-phenotypes-individual-trait-files-and-regenie.py)\] 
+* [**1-create-clean-demographics-notebook**](Notebooks/1-create-clean-demographics-notebook.md) \[code: [.ipynb](Code/notebooks/1-create-clean-demographics-notebook.ipynb) | [.py](Code/python_scripts/1-create-clean-demographics-notebook.py)\] 
+* [**2-process-datasets-discovery-primary-care**](Notebooks/2-process-datasets-discovery-primary-care.md) \[code: [.ipynb](Code/notebooks/2-process-datasets-discovery-primary-care.ipynb) | [.py](Code/python_scripts/2-process-datasets-discovery-primary-care)\] 
+* [**3-process-datasets-barts-health**](Notebooks/3-process-datasets-barts-health.md) \[code: [.ipynb](Code/notebooks/3-process-datasets-barts-health.ipynb) | [.py](Code/python_scripts/3-process-datasets-barts-health.py)\] 
+* [**4-process-datasets-bradford**](Notebooks/4-process-datasets-bradford.md) \[code: [.ipynb](Code/notebooks/4-process-datasets-bradford.ipynb) | [.py](Code/python_scripts/4-process-datasets-bradford.py)\] 
+* [**5-process-datasets-nhs-digital**](Notebooks/5-process-datasets-nhs-digital.md) \[code: [.ipynb](Code/notebooks/5-process-datasets-nhs-digital.ipynb) | [.py](Code/python_scripts/5-process-datasets-nhs-digital.py)\] 
+* [**6-merge-datasets-notebook**](Notebooks/6-merge-datasets-notebook.md) \[code: [.ipynb](Code/notebooks/6-merge-datasets-notebook.ipynb) | [.py](Code/python_scripts/6-merge-datasets-notebook.py)\] 
+* [**7-three-and-four-digit-ICD**](Notebooks/7-three-and-four-digit-ICD.md) \[code: [.ipynb](Code/notebooks/7-three-and-four-digit-ICD.ipynb) | [.py](Code/python_scripts/7-three-and-four-digit-ICD.py)\] 
+* [**8-custom-phenotypes**](Notebooks/8-custom-phenotypes.md) \[code: [.ipynb](Code/notebooks/8-custom-phenotypes-individual-trait-files-and-regenie.ipynb) | [.py](Code/python_scripts/8-custom-phenotypes-individual-trait-files-and-regenie.py)\] 
 
 ## Phenotype data
 The pipeline imports G&H phenotype data in `.../library-red/phenotypes_rawdata/`.  These data are from the following sources:
