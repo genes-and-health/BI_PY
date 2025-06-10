@@ -84,9 +84,9 @@ Click [`GenesAndHealth_custombinary_codelist_v010_2025_05v4.csv`](https://docs.g
 
 ## Output files
 
-All final output is saved to an `outputs` directory at the root level of the `/versionxyz-YYYY-mm/BI_PI` directory 
+All final output is saved to an `outputs` directory at the root level of the `/versionxyz-YYYY-mm/BI_PY` directory 
 
-If `outputs` is not present, the pipeline creates the directory at the root level of the `/versionxyz-YYYY-mm/BI_PI` directory when required.
+If `outputs` is not present, the pipeline creates the directory at the root level of the `/versionxyz-YYYY-mm/BI_PY` directory when required.
 
 The `outputs` directory hierarchy is as follows:
 
