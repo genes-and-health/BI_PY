@@ -1,4 +1,4 @@
-# `BI_PY`: a python pipeline for binary trait attribution in Genes & Health
+# `BI_PY` — python pipeline for binary trait attribution in Genes & Health
 
 <img src="GNH%20TD%20Logo.png" alt="G&H Team Data logo" width=25%>
 <img width="191" height="20" alt="image" src="https://github.com/user-attachments/assets/e5814924-f5a7-41d4-b634-e7e519a3fbfe" />
