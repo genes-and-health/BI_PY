@@ -3,17 +3,18 @@
 <img src="GNH%20TD%20Logo.png" alt="G&H Team Data logo" width=25%>
 <img width="191" height="20" alt="image" src="https://github.com/user-attachments/assets/e5814924-f5a7-41d4-b634-e7e519a3fbfe" />
 
-## Authors
+## Authors & Contributors
 
 * Stuart Rison
 * Mike Samuels
+* David van Heel
 
-Derived from the python/tre-tools pipeline written by Caroline Morton and Saeed Bidi and contributions from:
+Derived from the python/tre-tools pipeline first coded up by Caroline Morton and Saeed Bidi and contributions from:
 | <!-- --> | <!-- --> | <!-- --> |
 |----------|----------|----------|
 | Sarah Finer | Sam Hodgson | Ben Jacobs |
 | Stravoula Kanoni | Rohini Mathur | Daniel Stow |
-| David van Heel | Julia Zollner | and other G&H Team Data members |
+| Julia Zollner | and other G&H Team Data members |
 
 ## Summary
 
